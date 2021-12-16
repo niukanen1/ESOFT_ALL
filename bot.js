@@ -126,36 +126,36 @@ async function getPrices() {      // Function that creates dictionary with known
         dates.push(new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), nowDate.getHours()+i));
     }
 
-    getPricesForInterval(now.slice(0,10), overmor.slice(0,10))
+    return getPricesForInterval(now.slice(0,10), overmor.slice(0,10))
         .then((temp) => {
-            console.log("temp")
-            console.log(temp)
+            //console.log("temp")
+            //console.log(temp)
             for (const [key, value] of Object.entries(temp)) {
                 finalDIC[key] = value;
             }   
             return finalDIC;
         }).then((finalDIC) => {
-            console.log("finalDIC")
-            console.log(finalDIC)
-            for (let i = 0; i < dates.length; i++) {
-                let key = sliceDate(dates[i])["full"];
-                if (finalDIC[sliceDate(dates[i])["full"]] == null) {
-                    let hour = sliceDate(dates[i])["hour"];
-                    let tempDIC = getTempsForDays("Tallinn", "3")
+            //console.log("finalDIC")
+            //console.log(finalDIC)
+            return getTempsForDays("Tallinn", "3")
                     .then((tempDIC) => {
-                        let date = sliceDate(new Date(sliceDate(dates[i])["year"], 
+                        for (let i = 0; i < dates.length; i++) {
+                            if (finalDIC[sliceDate(dates[i])["full"]] == null) {
+                                let hour = sliceDate(dates[i])["hour"];
+                                let date = sliceDate(new Date(sliceDate(dates[i])["year"], 
                                                     sliceDate(dates[i])["month"]-1,
                                                     sliceDate(dates[i])["day"],
                                                     hour))["full"];
-                        let temp = tempDIC[date];
-                        let price = formulas[hour](temp);
-                        price = Math.trunc(price * 100) / 100;
-                        finalDIC[sliceDate(dates[i])["full"]] = price;
-                    })
-                }
-            }});
 
-    return finalDIC;
+                                finalDIC[sliceDate(dates[i])["full"]] = Math.trunc(formulas[hour](tempDIC[date]) * 100) / 100;
+                            }
+                        }
+                        //console.log(finalDIC)
+                        return finalDIC;
+                    })
+            });
+
+    
 
 }
 
@@ -192,6 +192,6 @@ let formulas = {"00":(a) => {return Math.exp(-0.041*a)*127.97},      // Dictiona
 
 //getTempsForDays("Tallinn", "3").then((a)=> {console.log(a)})
 //getPricesForInterval("2021-12-15", "2021-12-16").then((a)=> {console.log(a)})
-getPrices().then((a) => {console.log(a)})
+//getPrices().then((a) => {console.log(a)})
 
 module.exports  = {getPrices};
