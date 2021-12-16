@@ -194,4 +194,4 @@ let formulas = {"00":(a) => {return Math.exp(-0.041*a)*127.97},      // Dictiona
 //getPricesForInterval("2021-12-15", "2021-12-16").then((a)=> {console.log(a)})
 //getPrices().then((a) => {console.log(a)})
 
-module.exports  = {getPrices};
+module.exports  = {getPrices,formulas};
