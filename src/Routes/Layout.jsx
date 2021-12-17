@@ -8,10 +8,16 @@ import ModelPopUp from "../componens/ModelPopUp";
 
 export default function Layout() {
     const [state, setState] = useState({showModal: false})
+    const hide = () => {
+        setState({
+            showModal: false
+        })
+    }
+
     return (
 
         <div>
-            <ModelPopUp/>
+            <ModelPopUp props={{state, hide}}/>
             <header>
 
                 <div className='header-logo'>
@@ -26,7 +32,7 @@ export default function Layout() {
 
             </nav>
                 <div className='header-signin'>
-                    <div onClick={setState({showModal : true})}>
+                    <div onClick={() => setState({showModal : true})}>
                         Sign In
                         <img src={SignIcon} className="SignIcon"/>
                     </div>
