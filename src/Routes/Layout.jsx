@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import Logo from "../svg/logo"
-import Css from "../styles/index.css"
+import "../styles/index.css"
 import SignIcon from "../svg/signIcon.png"
 import {useState} from "react";
 import ModelPopUp from "../componens/ModelPopUp";
