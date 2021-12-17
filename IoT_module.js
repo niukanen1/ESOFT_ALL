@@ -16,6 +16,7 @@ async function get_devices(siteId, user, password){
             let dev = {
                 "id": device["id"],
                 "name": device["name"],
+                "roomId": device["roomId"]
             }
             devices.push(dev)
         }
@@ -47,7 +48,7 @@ async function set_device_setpoint(siteId, user, password, deviceId, point){
     var wizard = false, siteName = 'https://c' + siteId + '.by.enlife.io'
     const Api = require("./lib/enlife.js").Api
     const api_ins = await new Api(siteName) [wizard?'wizard':'login'] (user, password)
-    get_device(620, "apiuser","apiUserApiUser", 21)
+    get_device(siteId, "apiuser","apiUserApiUser", deviceId)
     .then((a) => 
     {
         let start = a[0].setup.min;
@@ -73,7 +74,7 @@ function shedule_device_setpoint(siteId, user, password, deviceId, point, dateti
 //shedule_device_setpoint(620, "apiuser","apiUserApiUser", 21, 0, new Date('2021-12-16T13:51:00'))
 
 //get_device(620, "apiuser","apiUserApiUser", 21).then((a) => {console.log(a)})
-//res = get_devices(620, "apiuser","apiUserApiUser")
+//get_devices(620, "apiuser","apiUserApiUser").then((a) => {console.log(a)})
 
 module.exports = {
     get_devices, get_device, set_device_setpoint, shedule_device_setpoint
