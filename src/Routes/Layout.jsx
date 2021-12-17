@@ -2,14 +2,18 @@ import { Link, Outlet } from 'react-router-dom';
 import Logo from "../svg/logo"
 import Css from "../styles/index.css"
 import SignIcon from "../svg/signIcon.png"
+import {useState} from "react";
+import ModelPopUp from "../componens/ModelPopUp";
 
 
 export default function Layout() {
-
+    const [state, setState] = useState({showModal: false})
     return (
 
         <div>
+            <ModelPopUp/>
             <header>
+
                 <div className='header-logo'>
                     <Logo/>
                 </div>
@@ -22,7 +26,7 @@ export default function Layout() {
 
             </nav>
                 <div className='header-signin'>
-                    <div>
+                    <div onClick={setState({showModal : true})}>
                         Sign In
                         <img src={SignIcon} className="SignIcon"/>
                     </div>

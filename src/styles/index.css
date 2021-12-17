@@ -1,4 +1,27 @@
+
+::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+
+::-webkit-scrollbar-track {
+    background: #e2e2e2;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #34B234;
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2a8c2a;
+}
+
 body{
+
     font-family: 'Roboto', sans-serif;
     margin: 0;
 }
@@ -179,4 +202,63 @@ section.chooseUs div{
 div.header-signin div{
     display: flex;
     align-items: center;
+}
+
+main.myHome {
+    display: flex;
+}
+
+.news{
+    display: flex;
+    flex-direction: column;
+    flex-basis:33.33%;
+}
+
+.mainPanel{
+    background: #E3EDF7;
+    box-shadow: -15px 15px 30px rgba(204, 213, 222, 0.2), 15px -15px 30px rgba(204, 213, 222, 0.2), -15px -15px 30px rgba(250, 255, 255, 0.9), 15px 15px 38px rgba(204, 213, 222, 0.9), inset 1px 1px 2px rgba(250, 255, 255, 0.3), inset -1px -1px 2px rgba(204, 213, 222, 0.5);
+    border-radius: 62px;
+    display: flex;
+    flex-basis:66.66%;
+}
+
+.news aside img{
+    width: 100%;
+}
+
+.news aside{
+    margin: 0 30px 30px 30px;
+
+    background: linear-gradient(108.65deg, #FFFFFF 1.27%, rgba(255, 255, 255, 0) 89.16%), #E3EDF7;
+    box-shadow: 2px 2px 4px rgba(114, 142, 171, 0.1), -6px -6px 20px rgba(255, 255, 255, 0.4), 4px 4px 20px rgba(111, 140, 176, 0.41);
+    border-radius: 14px;
+}
+
+.news aside h4{
+    margin: 20px;
+}
+
+.news aside p{
+    margin: 20px;
+}
+
+
+.ModelPopUp{
+    position: absolute;
+    padding: 50px;
+    background: #E3EDF5;
+    box-shadow: -1px 1px 2px rgba(204, 213, 221, 0.2), 1px -1px 2px rgba(204, 213, 221, 0.2), -1px -1px 2px rgba(250, 255, 255, 0.9), 1px 1px 3px rgba(204, 213, 221, 0.9), inset 1px 1px 2px rgba(250, 255, 255, 0.3), inset -1px -1px 2px rgba(204, 213, 221, 0.5);
+    border-radius: 50px;
+}
+
+.ModelPopUp input{
+    background: #E3EDF4;
+    box-shadow: 1px 1px 2px rgba(241, 251, 255, 0.3), -1px -1px 2px rgba(213, 223, 229, 0.5), inset -5px 5px 10px rgba(213, 223, 229, 0.2), inset 5px -5px 10px rgba(213, 223, 229, 0.2), inset -5px -5px 10px rgba(241, 251, 255, 0.9), inset 5px 5px 13px rgba(213, 223, 229, 0.9);
+    border-radius: 20px;
+}
+
+.ModelPopUp button{
+    background: #E3EDF5;
+    box-shadow: -6px 6px 12px rgba(216, 225, 233, 0.2), 6px -6px 12px rgba(216, 225, 233, 0.2), -6px -6px 12px rgba(238, 249, 255, 0.9), 6px 6px 15px rgba(216, 225, 233, 0.9), inset 1px 1px 2px rgba(238, 249, 255, 0.3), inset -1px -1px 2px rgba(216, 225, 233, 0.5);
+    border-radius: 50px;
 }
