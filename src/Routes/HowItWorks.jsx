@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client"
 import Graph from '../componens/Graph';
+import HowItWorksSVG from '../svg/HowItWorks'
 const getUsers = gql`
     query getUsers { 
         getAllUsers {
@@ -12,8 +13,10 @@ export default function HowItWorks() {
     const {loading, error, data } = useQuery(getUsers)
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error:(</p>
-    return ( 
-        <div>
+    return (
+
+        <div id="HowItWorksSVG">
+            <HowItWorksSVG/>
             {/* <h1>
                 How it works???
             </h1>

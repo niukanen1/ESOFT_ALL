@@ -5,13 +5,9 @@ export default function Myhome(props) {
     return (
         <main className="myHome">
             <div className="news">
-                <aside>
-                    <img src={News}/>
-                    <div>
-                        <h4>The petrol price got cut down</h4>
-                        <p>The goverment has spun a new law, that has drastically dropped the petrol price. Also goverment...</p>
-                    </div>
-                </aside>
+                <article>
+                    <iframe src="https://georglaabe.ru/" id="iframe"></iframe>
+                </article>
                 <aside>
                     <img src={News}/>
                     <div>
@@ -22,7 +18,7 @@ export default function Myhome(props) {
             </div>
 
             <div className="mainPanel">
-                dasdasdas
+
             </div>
         </main>
     )
