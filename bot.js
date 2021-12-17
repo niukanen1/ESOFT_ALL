@@ -158,6 +158,15 @@ async function getPrices() {      // Function that creates dictionary with known
     
 
 }
+async function get_processed_prices(){
+    return getPrices().then((a) => {
+        data = []
+        for (const [key, value] of Object.entries(a)){
+            data.push({name: key, price: value})
+        }
+        return data
+    })
+}
 
 let formulas = {"00":(a) => {return Math.exp(-0.041*a)*127.97},      // Dictionary with analysed formulas (Watch Excel for more info)
     "01":(a) => {return Math.exp(-0.02*a)*117.32},
@@ -185,6 +194,8 @@ let formulas = {"00":(a) => {return Math.exp(-0.041*a)*127.97},      // Dictiona
     "23":(a) => {return Math.exp(-0.104*a)*68.795}
 }
 
+
+
 //oneDayArray("Tallinn", "2021-12-08", "2021-12-09");
 //getHistoricalTemps("Tallinn", "2021-12-10");
 //getHistoricalTemps("Tallinn", "2021-12-11");
@@ -192,6 +203,6 @@ let formulas = {"00":(a) => {return Math.exp(-0.041*a)*127.97},      // Dictiona
 
 //getTempsForDays("Tallinn", "3").then((a)=> {console.log(a)})
 //getPricesForInterval("2021-12-15", "2021-12-16").then((a)=> {console.log(a)})
-//getPrices().then((a) => {console.log(a)})
+get_processed_prices().then((a) => {console.log(a)})
 
-module.exports  = {getPrices,formulas};
+module.exports  = {getPrices,formulas,get_processed_prices};
