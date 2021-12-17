@@ -203,6 +203,6 @@ let formulas = {"00":(a) => {return Math.exp(-0.041*a)*127.97},      // Dictiona
 
 //getTempsForDays("Tallinn", "3").then((a)=> {console.log(a)})
 //getPricesForInterval("2021-12-15", "2021-12-16").then((a)=> {console.log(a)})
-get_processed_prices().then((a) => {console.log(a)})
+//get_processed_prices().then((a) => {console.log(a)})
 
 module.exports  = {getPrices,formulas,get_processed_prices};
